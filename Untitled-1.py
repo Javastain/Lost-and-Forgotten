@@ -4,7 +4,7 @@ import pygame
 # pygame setup
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
-background = pygame.image.load("Assets/Image Assets/Lost And Forgotten.png")
+background = pygame.image.load("Image Assets/Lost And Forgotten.png")
 clock = pygame.time.Clock()
 running = True
 
