@@ -1,7 +1,5 @@
-# Example file showing a basic pygame "game loop"
 import pygame
 
-# pygame setup
 pygame.init()
 flags = pygame.SCALED | pygame.RESIZABLE
 screen = pygame.display.set_mode((1244, 900), flags)
@@ -18,7 +16,7 @@ while running:
             running = False
 
     # fill the screen with a color to wipe away anything from last frame
-    screen.fill("white")
+    screen.fill('#302732')
     screen.blit(background, (0, 0))
     # RENDER YOUR GAME HERE
 
