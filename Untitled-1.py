@@ -17,6 +17,9 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
+    # fill the screen with a color to wipe away anything from last frame
+    screen.fill("white")
+    screen.blit(background, (0, 0))
     # RENDER YOUR GAME HERE
 
     # flip() the display to put your work on screen
