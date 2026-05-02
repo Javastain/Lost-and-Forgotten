@@ -3,8 +3,10 @@ import pygame
 
 # pygame setup
 pygame.init()
-screen = pygame.display.set_mode((1280, 720))
-background = pygame.image.load("Image Assets/Lost And Forgotten.png")
+flags = pygame.SCALED | pygame.RESIZABLE
+screen = pygame.display.set_mode((1244, 900), flags)
+background = pygame.image.load("Assets/Image Assets/Lost And Forgotten.png").convert_alpha()
+background = pygame.transform.scale(background, (1244, 900))
 clock = pygame.time.Clock()
 running = True
 
@@ -16,8 +18,8 @@ while running:
             running = False
 
     # fill the screen with a color to wipe away anything from last frame
-    screen.fill("")
-
+    screen.fill("white")
+    screen.blit(background, (0, 0))
     # RENDER YOUR GAME HERE
 
     # flip() the display to put your work on screen
