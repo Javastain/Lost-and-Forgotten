@@ -251,6 +251,7 @@ while running:
                 account = "no one"
                 account_selected = "no one"
                 pygame.time.delay(900)
+                pygame.mixer.music.stop()
                 screen.blit(login_screen,(276,165))
                 screen.blit(outside,(0,0))
             
