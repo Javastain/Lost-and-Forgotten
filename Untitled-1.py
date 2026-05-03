@@ -17,7 +17,7 @@ michael_pfp = pygame.image.load('Assets/Image Assets/Michael pfp.png').convert_a
 john_pfp = pygame.image.load('Assets/Image Assets/John pfp.png').convert_alpha()
 marion_pfp = pygame.image.load('Assets/Image Assets/Marion pfp.png').convert_alpha()
 outside = pygame.image.load("Assets/Image Assets/Lost And Forgotten.png").convert_alpha()
-exit_icon = pygame.image.load("Assets/Image Assets/Exit Icon.png").convert_alpha()
+logout_icon = pygame.image.load("Assets/Image Assets/Exit Icon.png").convert_alpha()
 mail_icon = pygame.image.load("Assets/Image Assets/Mail Icon.png").convert_alpha()
 music_icon = pygame.image.load("Assets/Image Assets/Music Icon.png").convert_alpha()
 notes_icon = pygame.image.load("Assets/Image Assets/Notes Icon.png").convert_alpha()
@@ -34,7 +34,7 @@ nicole_hitbox = pygame.Rect((305,260),(200,70))
 michael_hitbox = pygame.Rect((305,360),(200,70))
 john_hitbox = pygame.Rect((305,460),(200,70))
 marion_hitbox = pygame.Rect((305,560),(200,70))
-exit_hitbox = pygame.Rect((285,665),(60,60))
+logout_hitbox = pygame.Rect((285,665),(60,60))
 
 computer_on = False
 account = "no one"
@@ -187,7 +187,7 @@ while running:
                             # screen.blit(photos_icon,(592, 420))
                             # screen.blit(music_icon,(592, 510))
 
-                        screen.blit(exit_icon,(285,665))
+                        screen.blit(logout_icon,(285,665))
                         screen.blit(outside,(0,0))
                     password_input = ''
 
@@ -221,8 +221,8 @@ while running:
                     hint_prompt = body_text.render('Need a hint?', True, (255,255,255))
                     hint = False
         if account != "no one":
-            # pygame.draw.rect(screen, (103,133,206), exit_hitbox)
-            if exit_hitbox.collidepoint(point) and mouse_left:
+            # pygame.draw.rect(screen, (103,133,206), logout_hitbox)
+            if logout_hitbox.collidepoint(point) and mouse_left:
                 account = "no one"
                 account_selected = "no one"
                 pygame.time.delay(900)
