@@ -17,10 +17,14 @@ nicole_pfp = pygame.image.load("Assets/Image Assets/Nicole pfp.png").convert_alp
 michael_pfp = pygame.image.load("Assets/Image Assets/Michael pfp.png").convert_alpha()
 john_pfp = pygame.image.load("Assets/Image Assets/John pfp.png").convert_alpha()
 marion_pfp = pygame.image.load("Assets/Image Assets/Marion pfp.png").convert_alpha()
-outside = pygame.image.load("Assets/Image Assets/Lost And Forgotten.png").convert_alpha()
+outside = pygame.image.load(
+    "Assets/Image Assets/Lost And Forgotten.png"
+).convert_alpha()
 mail_UI = pygame.image.load("Assets/Image Assets/Email UI.png").convert_alpha()
 music_paused_UI = pygame.image.load("Assets/Image Assets/Music UI.png").convert_alpha()
-music_playing_UI = pygame.image.load("Assets/Image Assets/Music UI (playing).png").convert_alpha()
+music_playing_UI = pygame.image.load(
+    "Assets/Image Assets/Music UI (playing).png"
+).convert_alpha()
 notes_UI = pygame.image.load("Assets/Image Assets/Notes UI.png").convert_alpha()
 photos_UI = pygame.image.load("Assets/Image Assets/Photos UI.png").convert_alpha()
 logout_icon = pygame.image.load("Assets/Image Assets/Exit Icon.png").convert_alpha()
@@ -84,17 +88,28 @@ hint_prompt_rect.center = (650, 585)
 password_input_rect = pygame.Rect((625, 540), (250, 30))
 
 current_time = datetime.datetime.now()
-init_second = int(current_time.strftime('%S'))
-init_minute = int(current_time.strftime('%M'))
-init_hour = int(current_time.strftime('%I'))
-init_meridian = current_time.strftime('%p')
+init_second = int(current_time.strftime("%S"))
+init_minute = int(current_time.strftime("%M"))
+init_hour = int(current_time.strftime("%I"))
+init_meridian = current_time.strftime("%p")
 
-second = (60 + int(current_time.strftime('%S')) - init_second) % 60
-minute = 3 + ((60 + int(current_time.strftime('%M')) - init_minute) % 60)
-hour = 11 + ((12 + int(current_time.strftime('%I')) - init_hour) % 12)
-meridian = current_time.strftime('%p')
+second = (60 + int(current_time.strftime("%S")) - init_second) % 60
+minute = 3 + ((60 + int(current_time.strftime("%M")) - init_minute) % 60)
+hour = 11 + ((12 + int(current_time.strftime("%I")) - init_hour) % 12)
+meridian = current_time.strftime("%p")
 
-clock_display = body_text.render("December 31, 1999, AAAAAAAAAAAAAAAA " + str(hour) + ":" + str(minute) + ":" + str(second) + " " + meridian, True, (0, 0, 0))
+clock_display = body_text.render(
+    "December 31, 1999, AAAAAAAAAAAAAAAA "
+    + str(hour)
+    + ":"
+    + str(minute)
+    + ":"
+    + str(second)
+    + " "
+    + meridian,
+    True,
+    (0, 0, 0),
+)
 clock_display_rect = clock_display.get_rect()
 clock_display_rect.center = (740, 715)
 
@@ -202,18 +217,18 @@ while running:
                         pygame.mixer.music.unload()
 
                         # Clock bar
-                        pygame.draw.rect(screen, (230,235,240), (277,700,690,35))
+                        pygame.draw.rect(screen, (230, 235, 240), (277, 700, 690, 35))
                         screen.blit(clock_display, clock_display_rect)
 
                         if account == "nicole":
-                            screen.blit(music_icon,(498, 320))
-                            music_icon_hitbox = pygame.Rect((498,320),(75,95))
-                            screen.blit(notes_icon,(648, 320))
-                            notes_icon_hitbox = pygame.Rect((648,320),(75,95))
-                            screen.blit(photos_icon,(498, 470))
-                            photos_icon_hitbox = pygame.Rect((498,470),(75,95))
-                            screen.blit(mail_icon,(648, 470))
-                            mail_icon_hitbox = pygame.Rect((698,470),(75,95))
+                            screen.blit(music_icon, (498, 320))
+                            music_icon_hitbox = pygame.Rect((498, 320), (75, 95))
+                            screen.blit(notes_icon, (648, 320))
+                            notes_icon_hitbox = pygame.Rect((648, 320), (75, 95))
+                            screen.blit(photos_icon, (498, 470))
+                            photos_icon_hitbox = pygame.Rect((498, 470), (75, 95))
+                            screen.blit(mail_icon, (648, 470))
+                            mail_icon_hitbox = pygame.Rect((698, 470), (75, 95))
                         if account == "michael":
                             screen.blit(mail_icon, (438, 315))
                             mail_icon_hitbox = pygame.Rect((438, 315), (75, 95))
@@ -295,11 +310,10 @@ while running:
                         "Need a hint?", True, (255, 255, 255)
                     )
                     hint = False
-        
-        
+
         if account != "no one":
-            
-            pygame.draw.rect(screen, (230,235,240), clock_display_rect)
+
+            pygame.draw.rect(screen, (230, 235, 240), clock_display_rect)
             screen.blit(clock_display, clock_display_rect)
 
             if logout_hitbox.collidepoint(point) and mouse_left:
@@ -333,25 +347,47 @@ while running:
 
 
     current_time = datetime.datetime.now()
-    second = (60 + int(current_time.strftime('%S')) - init_second) % 60
+    second = (60 + int(current_time.strftime("%S")) - init_second) % 60
     if second < 10:
         second = "0" + str(second)
-    minute = 3 + ((60 + int(current_time.strftime('%M')) - init_minute) % 60)
+    minute = 3 + ((60 + int(current_time.strftime("%M")) - init_minute) % 60)
     if minute < 10:
         minute = "0" + str(minute)
-    hour = 11 + ((12 + int(current_time.strftime('%I')) - init_hour) % 12)
+    hour = 11 + ((12 + int(current_time.strftime("%I")) - init_hour) % 12)
     if hour < 10:
         hour = "0" + str(hour)
     if hour > 11:
         meridian = "AM"
-        clock_display = body_text.render("January 1, 2000, " + str(hour) + ":" + str(minute) + ":" + str(second) + " " + meridian, True, (0, 0, 0))
+        clock_display = body_text.render(
+            "January 1, 2000, "
+            + str(hour)
+            + ":"
+            + str(minute)
+            + ":"
+            + str(second)
+            + " "
+            + meridian,
+            True,
+            (0, 0, 0),
+        )
     else:
         meridian = "PM"
-        clock_display = body_text.render("December 31, 1999, " + str(hour) + ":" + str(minute) + ":" + str(second) + " " + meridian, True, (0, 0, 0))
+        clock_display = body_text.render(
+            "December 31, 1999, "
+            + str(hour)
+            + ":"
+            + str(minute)
+            + ":"
+            + str(second)
+            + " "
+            + meridian,
+            True,
+            (0, 0, 0),
+        )
     if account != "no one":
-        pygame.draw.rect(screen, (230,235,240), clock_display_rect)
+        pygame.draw.rect(screen, (230, 235, 240), clock_display_rect)
         screen.blit(clock_display, clock_display_rect)
-    
+
     # flip() the display to put your work on screen
     pygame.display.flip()
     pygame.display.update()
