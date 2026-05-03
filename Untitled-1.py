@@ -46,7 +46,7 @@ music_icon_hitbox = pygame.Rect((0,0),(0,0))
 notes_icon_hitbox = pygame.Rect((0,0),(0,0))
 photos_icon_hitbox = pygame.Rect((0,0),(0,0))
 
-current_time = datetime.timedelta(hours = -8.0)
+start_time = datetime.timedelta(hours = -14.0)
 
 computer_on = False
 account = "no one"
@@ -270,7 +270,7 @@ while running:
                 notes_open = True
                 screen.blit(notes_UI)
             
-    print(str(current_time.seconds))
+    print(str(start_time.microseconds))
     
     # flip() the display to put your work on screen
     pygame.display.flip()
