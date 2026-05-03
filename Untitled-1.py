@@ -4,16 +4,18 @@ pygame.init()
 pygame.mixer.init()
 flags = pygame.SCALED | pygame.RESIZABLE
 screen = pygame.display.set_mode((1244, 900), flags)
-background = pygame.image.load("Assets/Image Assets/Lost And Forgotten.png").convert_alpha()
-background = pygame.transform.scale(background, (1244, 900))
+outside = pygame.image.load("Assets/Image Assets/Lost And Forgotten.png").convert_alpha()
+outside = pygame.transform.scale(outside, (1244, 900))
 clock = pygame.time.Clock()
 running = True
 
 
-backdrop = pygame.image.load('Assets/Image Assets/Computer Backdrop.png')
+inside = pygame.image.load('Assets/Image Assets/Computer Backdrop.png')
+
+power_hitbox = pygame.Rect((908,780),(33,33))
 
 screen.fill('#302732')
-screen.blit(background, (0, 0))
+screen.blit(outside, (0, 0))
 
 
 while running:
@@ -25,7 +27,7 @@ while running:
 
     # fill the screen with a color to wipe away anything from last frame
     # screen.fill('#302732')
-    # screen.blit(background, (0, 0))
+    # screen.blit(outside, (0, 0))
     # RENDER YOUR GAME HERE
 
     
@@ -36,28 +38,29 @@ while running:
     mouse_left, mouse_middle, mouse_right = pygame.mouse.get_pressed()
 
     # On button
-    power_hitbox = pygame.Rect((908,780),(33,33))
     if power_hitbox.collidepoint(point) and mouse_left:
         pygame.mixer.music.load("Assets/Audio Assets/braammmm.wav")
         pygame.mixer.music.play()
         
         pygame.time.delay(2000)
-        backdrop.set_alpha(60)
-        screen.blit(backdrop,(100,100))
-        screen.blit(background, (0, 0))
+        inside.set_alpha(60)
+        screen.blit(inside,(100,100))
+        screen.blit(outside, (0, 0))
         pygame.display.flip()
 
         pygame.time.delay(500)
-        backdrop.set_alpha(140)
-        screen.blit(backdrop,(100,100))
-        screen.blit(background, (0, 0))
+        inside.set_alpha(140)
+        screen.blit(inside,(100,100))
+        screen.blit(outside, (0, 0))
         pygame.display.flip()
 
         pygame.time.delay(300)
-        backdrop.set_alpha(255)
-        screen.blit(backdrop,(100,100))
-        screen.blit(background, (0, 0))
+        inside.set_alpha(255)
+        screen.blit(inside,(100,100))
+        screen.blit(outside, (0, 0))
         pygame.display.flip()
+
+        power_hitbox = pygame.Rect((0,0),(0,0))
 
 
 
