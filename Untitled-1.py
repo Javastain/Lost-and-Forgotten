@@ -1,4 +1,5 @@
 import pygame
+import datetime
 
 
 pygame.init()
@@ -8,7 +9,6 @@ screen = pygame.display.set_mode((1244, 900), flags)
 pygame.display.set_caption('Eleventh Hour')
 clock = pygame.time.Clock()
 running = True
-
 
 backdrop = pygame.image.load('Assets/Image Assets/Computer Backdrop.png').convert_alpha()
 login_screen = pygame.image.load('Assets/Image Assets/Login Screen.png').convert_alpha()
@@ -46,6 +46,8 @@ music_icon_hitbox = pygame.Rect((0,0),(0,0))
 notes_icon_hitbox = pygame.Rect((0,0),(0,0))
 photos_icon_hitbox = pygame.Rect((0,0),(0,0))
 
+current_time = datetime.timedelta(hours = -8.0)
+
 computer_on = False
 account = "no one"
 account_selected = "no one"
@@ -81,6 +83,8 @@ hint_prompt_rect = password_prompt.get_rect()
 hint_prompt_rect.center = (650, 585)
 
 password_input_rect = pygame.Rect((625, 540), (250, 30))
+
+clock_display = body_text.render(str("aaa"), True, (255, 255, 255))
 
 
 # This would draw a rectangle that perfectly fits over the screen. Just so we know its dimensions.
@@ -171,6 +175,7 @@ while running:
                     if account != 'no one':
                         pygame.time.delay(900)
                         screen.blit(backdrop,(276,165))
+                        pygame.draw.rect(screen, (230,235,240), (277,700,690,35))
 
                         if account == "nicole":
                             print("nicole logged in")
@@ -254,18 +259,16 @@ while running:
                 screen.blit(mail_UI)
 
             if music_icon_hitbox.collidepoint(point) and mouse_left:
-                print ("music icon clicked")
                 music_open = True
                 if pygame.mixer.music.get_busy() == False:
                     pygame.mixer.music.load("Assets/Audio Assets/moremusic.mp3")
                     screen.blit(music_paused_UI,(400, 200))
             
             if notes_icon_hitbox.collidepoint(point) and mouse_left:
-                print ("music icon clicked")
                 notes_open = True
                 screen.blit(notes_UI)
             
-
+    print(str(current_time.seconds))
     
     # flip() the display to put your work on screen
     pygame.display.flip()
