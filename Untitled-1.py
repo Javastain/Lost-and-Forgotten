@@ -1,4 +1,5 @@
 import pygame
+import sys
 
 pygame.init()
 pygame.mixer.init()
@@ -113,6 +114,17 @@ while running:
         if event.type == pygame.MOUSEBUTTONDOWN and password_input_rect.collidepoint(point):
             password_active = True
         
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_BACKSPACE:
+                password_input = password_input[:-1]
+                text = body_text.render(password_input, True, (255, 255, 255))
+            if event.key == pygame.K_RETURN:
+                print(password_input) 
+        if event.type == pygame.TEXTINPUT:
+            password_input += event.text
+            event.text.delay(100,100)
+
+        """
         # if the key is physically pressed down
         if event.type == pygame.TEXTINPUT:
             if event.text == pygame.K_BACKSPACE:
@@ -121,6 +133,7 @@ while running:
             else:
                 pygame.key.set_repeat(1000,500)
                 password_input += event.text
+        """
 
         if password_active:
             password_color = password_color_active
@@ -138,6 +151,7 @@ while running:
     
     # flip() the display to put your work on screen
     pygame.display.flip()
+    pygame.display.update()
     clock.tick(60)  # limits FPS to 60
 
 
