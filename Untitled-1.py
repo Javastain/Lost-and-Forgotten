@@ -45,7 +45,7 @@ michael_hitbox = pygame.Rect((305, 360), (200, 70))
 john_hitbox = pygame.Rect((305, 460), (200, 70))
 marion_hitbox = pygame.Rect((305, 560), (200, 70))
 logout_hitbox = pygame.Rect((285, 665), (60, 60))
-UI_Exit_hitbox = pygame.Rect((700, 202), (60, 60))
+UI_Exit_hitbox = pygame.Rect((795,200,60,60))
 mail_icon_hitbox = pygame.Rect((0, 0), (0, 0))
 music_icon_hitbox = pygame.Rect((0, 0), (0, 0))
 notes_icon_hitbox = pygame.Rect((0, 0), (0, 0))
@@ -84,6 +84,14 @@ password_prompt_rect.center = (650, 525)
 hint_prompt = body_text.render("Need a hint?", True, (255, 255, 255))
 hint_prompt_rect = password_prompt.get_rect()
 hint_prompt_rect.center = (650, 585)
+
+nicole_note = body_text.render("GAME IS UNFINISHED! This is all there is, sorry :(\n\n It's hard to believe that the digital world's ending tonight.\nI'm kind of looking forward to it.\nDoes that make me a bad person?\nProbably.\nThis computer's all I have left of Michael.\nAnd it almost seems alive, sometimes. Like part of him is left.\nMaybe now he can finally rest.\n\n(Marion's password is \"I, Mudd\" if you want to hear some cool\nmusic and see the credits)", True, (0, 0, 0))
+nicole_note_rect = password_prompt.get_rect()
+nicole_note_rect.center = (430, 300)
+
+marion_note = body_text.render("CREDITS:\n\nStory: Ivy Edwards, Devin Gulliver, Kate Korb\n\nCode: Ivy Edwards, Kate Korb\nMade using Pygame-ce\n\nProof of Concept: Devin Gulliver\n\nArt: Ivy Edwards\n\nMusic/Sound Effects: Devin Gulliver", True, (0, 0, 0))
+marion_note_rect = password_prompt.get_rect()
+marion_note_rect.center = (430, 300)
 
 password_input_rect = pygame.Rect((625, 540), (250, 30))
 
@@ -326,7 +334,7 @@ while running:
 
             if mail_icon_hitbox.collidepoint(point) and mouse_left:
                 mail_open = True
-                screen.blit(mail_UI)
+                screen.blit(mail_UI, (400, 200))
 
             if music_icon_hitbox.collidepoint(point) and mouse_left:
                 music_open = True
@@ -336,12 +344,61 @@ while running:
                     
                 else:
                     screen.blit(music_playing_UI, (400, 200))
-                
-                    pygame.draw.rect(screen, "white", (795,200,60,60))
 
             if notes_icon_hitbox.collidepoint(point) and mouse_left:
                 notes_open = True
-                screen.blit(notes_UI)
+                screen.blit(notes_UI, (400, 200))
+
+                if account == "nicole":
+                    screen.blit(nicole_note, nicole_note_rect)
+                if account == "marion":
+                    screen.blit(marion_note, marion_note_rect)
+
+            if photos_icon_hitbox.collidepoint(point) and mouse_left:
+                photos_open = True
+                screen.blit(photos_UI, (400, 200))
+            
+            if UI_Exit_hitbox.collidepoint(point) and mouse_left:
+                mail_open = False
+                music_open = False
+                notes_open = False
+                photos_open = False
+                screen.blit(backdrop,(276,165))
+
+                if account == "nicole":
+                    screen.blit(music_icon, (498, 320))
+                    music_icon_hitbox = pygame.Rect((498, 320), (75, 95))
+                    screen.blit(notes_icon, (648, 320))
+                    notes_icon_hitbox = pygame.Rect((648, 320), (75, 95))
+                    screen.blit(photos_icon, (498, 470))
+                    photos_icon_hitbox = pygame.Rect((498, 470), (75, 95))
+                    screen.blit(mail_icon, (648, 470))
+                    mail_icon_hitbox = pygame.Rect((648, 470), (75, 95))
+                if account == "michael":
+                    screen.blit(mail_icon, (438, 315))
+                    mail_icon_hitbox = pygame.Rect((438, 315), (75, 95))
+                    screen.blit(notes_icon, (588, 325))
+                    notes_icon_hitbox = pygame.Rect((588, 325), (75, 95))
+                    screen.blit(music_icon, (504, 420))
+                    music_icon_hitbox = pygame.Rect((504, 420), (75, 95))
+                    screen.blit(photos_icon, (640, 460))
+                    photos_icon_hitbox = pygame.Rect((640, 460), (75, 95))
+                if account == "john":
+                    screen.blit(notes_icon, (317, 240))
+                    notes_icon_hitbox = pygame.Rect((317, 240), (75, 95))
+                    screen.blit(music_icon, (320, 330))
+                    music_icon_hitbox = pygame.Rect((320, 330), (75, 95))
+                    screen.blit(photos_icon, (310, 420))
+                    photos_icon_hitbox = pygame.Rect((310, 420), (75, 95))
+                    screen.blit(mail_icon, (867, 510))
+                    mail_icon_hitbox = pygame.Rect((867, 510), (75, 95))
+                if account == "marion":
+                    screen.blit(notes_icon, (592, 375))
+                    notes_icon_hitbox = pygame.Rect((592, 375), (75, 95))
+                pygame.draw.rect(screen, (230, 235, 240), (277, 700, 690, 35))
+                screen.blit(clock_display, clock_display_rect)
+                screen.blit(logout_icon, (285, 665))
+                screen.blit(outside,(0,0))
 
     
 
