@@ -41,7 +41,7 @@ michael_hitbox = pygame.Rect((305, 360), (200, 70))
 john_hitbox = pygame.Rect((305, 460), (200, 70))
 marion_hitbox = pygame.Rect((305, 560), (200, 70))
 logout_hitbox = pygame.Rect((285, 665), (60, 60))
-UI_Exit_hitbox = pygame.Rect((400, 665), (60, 60))
+UI_Exit_hitbox = pygame.Rect((700, 202), (60, 60))
 mail_icon_hitbox = pygame.Rect((0, 0), (0, 0))
 music_icon_hitbox = pygame.Rect((0, 0), (0, 0))
 notes_icon_hitbox = pygame.Rect((0, 0), (0, 0))
@@ -198,6 +198,8 @@ while running:
                     if account != "no one":
                         pygame.time.delay(900)
                         screen.blit(backdrop,(276,165))
+                        pygame.mixer.music.stop()
+                        pygame.mixer.music.unload()
 
                         # Clock bar
                         pygame.draw.rect(screen, (230,235,240), (277,700,690,35))
@@ -317,13 +319,18 @@ while running:
                 if pygame.mixer.music.get_busy() == False:
                     pygame.mixer.music.load("Assets/Audio Assets/moremusic.mp3")
                     screen.blit(music_paused_UI, (400, 200))
+                    
                 else:
                     screen.blit(music_playing_UI, (400, 200))
+                
+                    pygame.draw.rect(screen, "white", (795,200,60,60))
 
             if notes_icon_hitbox.collidepoint(point) and mouse_left:
                 notes_open = True
                 screen.blit(notes_UI)
+
     
+
 
     current_time = datetime.datetime.now()
     second = (60 + int(current_time.strftime('%S')) - init_second) % 60
