@@ -46,8 +46,6 @@ music_icon_hitbox = pygame.Rect((0,0),(0,0))
 notes_icon_hitbox = pygame.Rect((0,0),(0,0))
 photos_icon_hitbox = pygame.Rect((0,0),(0,0))
 
-start_time = datetime.timedelta(hours = -14.0)
-
 computer_on = False
 account = "no one"
 account_selected = "no one"
@@ -84,7 +82,20 @@ hint_prompt_rect.center = (650, 585)
 
 password_input_rect = pygame.Rect((625, 540), (250, 30))
 
-clock_display = body_text.render(str("aaa"), True, (255, 255, 255))
+current_time = datetime.datetime.now()
+init_second = int(current_time.strftime('%S'))
+init_minute = int(current_time.strftime('%M'))
+init_hour = int(current_time.strftime('%I'))
+init_meridian = current_time.strftime('%p')
+
+second = (60 + int(current_time.strftime('%S')) - init_second) % 60
+minute = 3 + ((60 + int(current_time.strftime('%M')) - init_minute) % 60)
+hour = 11 + ((12 + int(current_time.strftime('%I')) - init_hour) % 12)
+meridian = current_time.strftime('%p')
+
+clock_display = body_text.render("December 31, 1999, AAAAAAAAAAAAAAAA " + str(hour) + ":" + str(minute) + ":" + str(second) + " " + meridian, True, (0, 0, 0))
+clock_display_rect = clock_display.get_rect()
+clock_display_rect.center = (740, 715)
 
 
 # This would draw a rectangle that perfectly fits over the screen. Just so we know its dimensions.
@@ -99,7 +110,6 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-        
         # Mouse pointer
         point = pygame.mouse.get_pos()
         # Get mouse button states
@@ -175,10 +185,12 @@ while running:
                     if account != 'no one':
                         pygame.time.delay(900)
                         screen.blit(backdrop,(276,165))
+
+                        # Clock bar
                         pygame.draw.rect(screen, (230,235,240), (277,700,690,35))
+                        screen.blit(clock_display, clock_display_rect)
 
                         if account == "nicole":
-                            print("nicole logged in")
                             screen.blit(music_icon,(498, 320))
                             music_icon_hitbox = pygame.Rect((498,320),(75,95))
                             screen.blit(notes_icon,(648, 320))
@@ -246,8 +258,13 @@ while running:
                 if mouse_left and not hint_prompt_rect.collidepoint(point):
                     hint_prompt = body_text.render('Need a hint?', True, (255,255,255))
                     hint = False
+        
+        
         if account != "no one":
             
+            pygame.draw.rect(screen, (230,235,240), clock_display_rect)
+            screen.blit(clock_display, clock_display_rect)
+
             if logout_hitbox.collidepoint(point) and mouse_left:
                 account = "no one"
                 account_selected = "no one"
@@ -269,8 +286,27 @@ while running:
             if notes_icon_hitbox.collidepoint(point) and mouse_left:
                 notes_open = True
                 screen.blit(notes_UI)
-            
-    print(str(start_time.microseconds))
+    
+
+    current_time = datetime.datetime.now()
+    second = (60 + int(current_time.strftime('%S')) - init_second) % 60
+    if second < 10:
+        second = "0" + str(second)
+    minute = 3 + ((60 + int(current_time.strftime('%M')) - init_minute) % 60)
+    if minute < 10:
+        minute = "0" + str(minute)
+    hour = 11 + ((12 + int(current_time.strftime('%I')) - init_hour) % 12)
+    if hour < 10:
+        hour = "0" + str(hour)
+    if hour > 11:
+        meridian = "AM"
+        clock_display = body_text.render("January 1, 2000, " + str(hour) + ":" + str(minute) + ":" + str(second) + " " + meridian, True, (0, 0, 0))
+    else:
+        meridian = "PM"
+        clock_display = body_text.render("December 31, 1999, " + str(hour) + ":" + str(minute) + ":" + str(second) + " " + meridian, True, (0, 0, 0))
+    if account != "no one":
+        pygame.draw.rect(screen, (230,235,240), clock_display_rect)
+        screen.blit(clock_display, clock_display_rect)
     
     # flip() the display to put your work on screen
     pygame.display.flip()
