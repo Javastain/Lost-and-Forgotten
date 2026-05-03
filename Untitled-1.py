@@ -1,5 +1,5 @@
 import pygame
-import sys
+
 
 pygame.init()
 pygame.mixer.init()
@@ -162,7 +162,6 @@ while running:
                     password_input = ''
 
             password = body_text.render(password_input, True, (0, 0, 0))
-            screen.blit(password, (password_input_rect.x + 5, password_input_rect.y + 5))
 
             if event.type == pygame.TEXTINPUT and password.get_width() < 240 and password_active == True:
                 password_input += event.text
@@ -176,7 +175,8 @@ while running:
                 screen.blit(password_prompt, password_prompt_rect)
                 pygame.draw.rect(screen, password_color, password_input_rect)
                 screen.blit(hint_prompt, hint_prompt_rect)
-
+            
+            screen.blit(password, (password_input_rect.x + 5, password_input_rect.y + 5))
 
             if hint_prompt_rect.collidepoint(point) and mouse_left:
                 hint = True
@@ -186,8 +186,6 @@ while running:
                 if mouse_left and not hint_prompt_rect.collidepoint(point):
                     hint_prompt = body_text.render('Need a hint?', True, (255,255,255))
                     hint = False
-            
-
         if account != "no one":
             # pygame.draw.rect(screen, (103,133,206), exit_hitbox)
             if exit_hitbox.collidepoint(point) and mouse_left:
