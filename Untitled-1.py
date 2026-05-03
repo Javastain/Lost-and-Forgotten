@@ -41,7 +41,20 @@ while running:
         pygame.mixer.music.load("Assets/Audio Assets/braammmm.wav")
         pygame.mixer.music.play()
         
-        pygame.time.delay(3000)
+        pygame.time.delay(2000)
+        backdrop.set_alpha(60)
+        screen.blit(backdrop,(100,100))
+        screen.blit(background, (0, 0))
+        pygame.display.flip()
+
+        pygame.time.delay(500)
+        backdrop.set_alpha(140)
+        screen.blit(backdrop,(100,100))
+        screen.blit(background, (0, 0))
+        pygame.display.flip()
+
+        pygame.time.delay(300)
+        backdrop.set_alpha(255)
         screen.blit(backdrop,(100,100))
         screen.blit(background, (0, 0))
         pygame.display.flip()
