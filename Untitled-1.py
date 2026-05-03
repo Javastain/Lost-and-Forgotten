@@ -17,14 +17,10 @@ nicole_pfp = pygame.image.load("Assets/Image Assets/Nicole pfp.png").convert_alp
 michael_pfp = pygame.image.load("Assets/Image Assets/Michael pfp.png").convert_alpha()
 john_pfp = pygame.image.load("Assets/Image Assets/John pfp.png").convert_alpha()
 marion_pfp = pygame.image.load("Assets/Image Assets/Marion pfp.png").convert_alpha()
-outside = pygame.image.load(
-    "Assets/Image Assets/Lost And Forgotten.png"
-).convert_alpha()
+outside = pygame.image.load("Assets/Image Assets/Lost And Forgotten.png").convert_alpha()
 mail_UI = pygame.image.load("Assets/Image Assets/Email UI.png").convert_alpha()
 music_paused_UI = pygame.image.load("Assets/Image Assets/Music UI.png").convert_alpha()
-music_playing_UI = pygame.image.load(
-    "Assets/Image Assets/Music UI (playing).png"
-).convert_alpha()
+music_playing_UI = pygame.image.load("Assets/Image Assets/Music UI (playing).png").convert_alpha()
 notes_UI = pygame.image.load("Assets/Image Assets/Notes UI.png").convert_alpha()
 photos_UI = pygame.image.load("Assets/Image Assets/Photos UI.png").convert_alpha()
 logout_icon = pygame.image.load("Assets/Image Assets/Exit Icon.png").convert_alpha()
