@@ -208,9 +208,8 @@ while running:
                         if account == "marion":
                             screen.blit(notes_icon,(592, 375))
                             notes_icon_hitbox = pygame.Rect((592,375),(75,95))
-                            # screen.blit(mail_icon,(592, 330))
-                            # screen.blit(photos_icon,(592, 420))
-                            # screen.blit(music_icon,(592, 510))
+                            pygame.mixer.music.load("Assets/Audio Assets/ominous-loop.mp3")
+                            pygame.mixer.music.play(-1)
                            
                         screen.blit(logout_icon,(285,665))
                         screen.blit(outside,(0,0))
