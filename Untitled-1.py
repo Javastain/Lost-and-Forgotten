@@ -22,6 +22,10 @@ mail_icon = pygame.image.load("Assets/Image Assets/Mail Icon.png").convert_alpha
 music_icon = pygame.image.load("Assets/Image Assets/Music Icon.png").convert_alpha()
 notes_icon = pygame.image.load("Assets/Image Assets/Notes Icon.png").convert_alpha()
 photos_icon = pygame.image.load("Assets/Image Assets/Photos Icon.png").convert_alpha()
+mail_icon = pygame.transform.scale(mail_icon, (75, 95))
+music_icon = pygame.transform.scale(music_icon, (75, 95))
+notes_icon = pygame.transform.scale(notes_icon, (75, 95))
+photos_icon = pygame.transform.scale(photos_icon, (75, 95))
 
 outside = pygame.transform.scale(outside, (1244, 900))
 
@@ -151,12 +155,38 @@ while running:
                     
                     if account_selected == 'nicole':
                         account = 'nicole'
-                    if account_selected == 'michael' and password_input == 'test!':
+                    if account_selected == 'michael' and password_input == 'kegsmasher1999':
                         account = 'michael'
+                    if account_selected == 'john' and password_input == 'M00nlander':
+                        account = 'john'
+                    if account_selected == 'marion' and password_input == 'test!':
+                        account = 'marion'
 
                     if account != 'no one':
                         pygame.time.delay(900)
                         screen.blit(backdrop,(276,165))
+
+                        if account == "nicole":
+                            screen.blit(music_icon,(498, 320))
+                            screen.blit(notes_icon,(648, 320))
+                            screen.blit(photos_icon,(498, 470))
+                            screen.blit(mail_icon,(648, 470))
+                        if account == "michael":
+                            screen.blit(mail_icon,(438, 315))
+                            screen.blit(notes_icon,(588, 325))
+                            screen.blit(music_icon,(504, 420))
+                            screen.blit(photos_icon,(570, 410))
+                        if account == "john":
+                            screen.blit(notes_icon,(317, 240))
+                            screen.blit(music_icon,(320, 330))
+                            screen.blit(photos_icon,(310, 420))
+                            screen.blit(mail_icon,(867, 510))
+                        if account == "marion":
+                            screen.blit(notes_icon,(592, 240))
+                            # screen.blit(mail_icon,(592, 330))
+                            # screen.blit(photos_icon,(592, 420))
+                            # screen.blit(music_icon,(592, 510))
+
                         screen.blit(exit_icon,(285,665))
                         screen.blit(outside,(0,0))
                     password_input = ''
@@ -183,6 +213,10 @@ while running:
             if hint:
                 if account_selected == "nicole":
                     hint_prompt = body_text.render('Need a hint?\nIt\'s the first thing you think of!', True, (255,255,255))
+                if account_selected == "michael":
+                    hint_prompt = body_text.render('Need a hint?\ngreatestaccomplishment+gradyear', True, (255,255,255))
+                if account_selected == "john":
+                    hint_prompt = body_text.render('Need a hint?\nMcD0nald\'s astr0naut', True, (255,255,255))
                 if mouse_left and not hint_prompt_rect.collidepoint(point):
                     hint_prompt = body_text.render('Need a hint?', True, (255,255,255))
                     hint = False
@@ -194,8 +228,7 @@ while running:
                 pygame.time.delay(900)
                 screen.blit(login_screen,(276,165))
                 screen.blit(outside,(0,0))
-                if account == "nicole":
-                    screen.blit(music_icon,(498, 320))
+            
 
             
     # pygame.draw.rect(screen, "white", (287,655,70,70))
