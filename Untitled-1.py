@@ -17,6 +17,9 @@ michael_pfp = pygame.image.load('Assets/Image Assets/Michael pfp.png').convert_a
 john_pfp = pygame.image.load('Assets/Image Assets/John pfp.png').convert_alpha()
 marion_pfp = pygame.image.load('Assets/Image Assets/Marion pfp.png').convert_alpha()
 outside = pygame.image.load("Assets/Image Assets/Lost And Forgotten.png").convert_alpha()
+mail_UI = pygame.image.load("Assets/Image Assets/Email UI.png").convert_alpha()
+music_paused_UI = pygame.image.load("Assets/Image Assets/Music UI.png").convert_alpha()
+music_playing_UI = pygame.image.load("Assets/Image Assets/Music UI (playing).png").convert_alpha()
 logout_icon = pygame.image.load("Assets/Image Assets/Exit Icon.png").convert_alpha()
 mail_icon = pygame.image.load("Assets/Image Assets/Mail Icon.png").convert_alpha()
 music_icon = pygame.image.load("Assets/Image Assets/Music Icon.png").convert_alpha()
@@ -35,10 +38,12 @@ michael_hitbox = pygame.Rect((305,360),(200,70))
 john_hitbox = pygame.Rect((305,460),(200,70))
 marion_hitbox = pygame.Rect((305,560),(200,70))
 logout_hitbox = pygame.Rect((285,665),(60,60))
+UI_Exit_hitbox = pygame.Rect((400,665),(60,60))
 
 computer_on = False
 account = "no one"
 account_selected = "no one"
+music_open = False
 mail_open = False
 notes_open = False
 photos_open = False
@@ -47,7 +52,7 @@ hint = False
 password_input = ""
 password_active = False
 password_color_active = pygame.Color((255,255,255))
-password_color_passive = pygame.Color((240,240,240))
+password_color_passive = pygame.Color((200,200,200))
 password_color = password_color_passive
 
 screen.fill('#302732')
@@ -162,7 +167,16 @@ while running:
                         screen.blit(backdrop,(276,165))
 
                         if account == "nicole":
+                            print("nicole logged in")
                             screen.blit(music_icon,(498, 320))
+                            music_icon_hitbox = pygame.Rect((498,320),(100,100))
+                            if event.type == pygame.MOUSEBUTTONDOWN and music_icon_hitbox.collidepoint(point):
+                                print ("music icon clicked")
+                                music_open = True
+                            if music_open== True and pygame.mixer.music.get_busy() == False:
+                                pygame.mixer.music.load("Assets/Audio Assets/moremusic.mp3")
+                                screen.blit(music_paused_UI,(400, 200))
+                                
                             screen.blit(notes_icon,(648, 320))
                             screen.blit(photos_icon,(498, 470))
                             screen.blit(mail_icon,(648, 470))
@@ -181,7 +195,7 @@ while running:
                             # screen.blit(mail_icon,(592, 330))
                             # screen.blit(photos_icon,(592, 420))
                             # screen.blit(music_icon,(592, 510))
-
+                           
                         screen.blit(logout_icon,(285,665))
                         screen.blit(outside,(0,0))
                     password_input = ''
