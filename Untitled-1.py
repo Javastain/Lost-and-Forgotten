@@ -119,7 +119,8 @@ while running:
                     password_input = password_input[:-1]
                     text = body_text.render(password_input, True, (255, 255, 255))
                 if event.key == pygame.K_RETURN:
-                    print(password_input) 
+                    password_active = False
+
             if event.type == pygame.TEXTINPUT:
                 password_input += event.text
 
