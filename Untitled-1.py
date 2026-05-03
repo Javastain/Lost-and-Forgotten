@@ -19,6 +19,7 @@ marion_pfp = pygame.image.load('Assets/Image Assets/Marion pfp.png').convert_alp
 outside = pygame.image.load("Assets/Image Assets/Lost And Forgotten.png").convert_alpha()
 exit_icon = pygame.image.load("Assets/Image Assets/Exit Icon.png").convert_alpha()
 mail_icon = pygame.image.load("Assets/Image Assets/Mail Icon.png").convert_alpha()
+music_icon = pygame.image.load("Assets/Image Assets/Music Icon.png").convert_alpha()
 notes_icon = pygame.image.load("Assets/Image Assets/Notes Icon.png").convert_alpha()
 photos_icon = pygame.image.load("Assets/Image Assets/Photos Icon.png").convert_alpha()
 
@@ -195,6 +196,8 @@ while running:
                 pygame.time.delay(900)
                 screen.blit(login_screen,(276,165))
                 screen.blit(outside,(0,0))
+                if account == "nicole":
+                    screen.blit(music_icon,(710, 300))
 
             
     # pygame.draw.rect(screen, "white", (287,655,70,70))
