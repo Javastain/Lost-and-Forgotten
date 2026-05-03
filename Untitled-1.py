@@ -57,95 +57,94 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    # fill the screen with a color to wipe away anything from last frame
+        # fill the screen with a color to wipe away anything from last frame
 
-    # RENDER YOUR GAME HERE
+        # RENDER YOUR GAME HERE
 
-    
-    
-    # Mouse pointer
-    point = pygame.mouse.get_pos()
-    # Get mouse button states
-    mouse_left, mouse_middle, mouse_right = pygame.mouse.get_pressed()
-
-    # On button
-    if power_hitbox.collidepoint(point) and mouse_left:
-        pygame.mixer.music.load("Assets/Audio Assets/braammmm.wav")
-        pygame.mixer.music.play()
-        
-        pygame.time.delay(1600)
-        login_screen.set_alpha(60)
-        screen.blit(login_screen,(276,165))
-        screen.blit(outside, (0, 0))
-        pygame.display.flip()
-
-        pygame.time.delay(300)
-        login_screen.set_alpha(140)
-        screen.blit(login_screen,(276,165))
-        screen.blit(outside, (0, 0))
-        pygame.display.flip()
-
-        pygame.time.delay(150)
-        login_screen.set_alpha(255)
-        screen.blit(login_screen,(276,165))
-        screen.blit(outside, (0, 0))
-        pygame.display.flip()
-
-        power_hitbox = pygame.Rect((0,0),(0,0))
-
-        computer_on = True
-
-
-    if computer_on == True and account == "no one" and account_selected == "no one":
-        screen.blit(login_prompt, login_prompt_rect)
         
         
-        if event.type == pygame.MOUSEBUTTONDOWN and nicole_hitbox.collidepoint(point):
-            account_selected = "nicole"
-        if event.type == pygame.MOUSEBUTTONDOWN and michael_hitbox.collidepoint(point):
-            account_selected = "michael"
-        if event.type == pygame.MOUSEBUTTONDOWN and john_hitbox.collidepoint(point):
-            account_selected = "john"
-        if event.type == pygame.MOUSEBUTTONDOWN and marion_hitbox.collidepoint(point):    
-            account_selected = "marion"
+        # Mouse pointer
+        point = pygame.mouse.get_pos()
+        # Get mouse button states
+        mouse_left, mouse_middle, mouse_right = pygame.mouse.get_pressed()
 
-    if account_selected != "no one":
-        pygame.draw.rect(screen, (103,133,206), ((277+290,165+320),(350,207)))            
-        if event.type == pygame.MOUSEBUTTONDOWN and password_input_rect.collidepoint(point):
-            password_active = True
-        
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_BACKSPACE:
-                password_input = password_input[:-1]
-                text = body_text.render(password_input, True, (255, 255, 255))
-            if event.key == pygame.K_RETURN:
-                print(password_input) 
-        if event.type == pygame.TEXTINPUT:
-            password_input += event.text
-            event.text.delay(100,100)
+        # On button
+        if power_hitbox.collidepoint(point) and mouse_left:
+            pygame.mixer.music.load("Assets/Audio Assets/braammmm.wav")
+            pygame.mixer.music.play()
+            
+            pygame.time.delay(1600)
+            login_screen.set_alpha(60)
+            screen.blit(login_screen,(276,165))
+            screen.blit(outside, (0, 0))
+            pygame.display.flip()
 
-        """
-        # if the key is physically pressed down
-        if event.type == pygame.TEXTINPUT:
-            if event.text == pygame.K_BACKSPACE:
-                # stores text except last letter
-                password_input = password_input[0:-1]
-            else:
-                pygame.key.set_repeat(1000,500)
+            pygame.time.delay(300)
+            login_screen.set_alpha(140)
+            screen.blit(login_screen,(276,165))
+            screen.blit(outside, (0, 0))
+            pygame.display.flip()
+
+            pygame.time.delay(150)
+            login_screen.set_alpha(255)
+            screen.blit(login_screen,(276,165))
+            screen.blit(outside, (0, 0))
+            pygame.display.flip()
+
+            power_hitbox = pygame.Rect((0,0),(0,0))
+
+            computer_on = True
+
+
+        if computer_on == True and account == "no one" and account_selected == "no one":
+            screen.blit(login_prompt, login_prompt_rect)
+            
+            
+            if event.type == pygame.MOUSEBUTTONDOWN and nicole_hitbox.collidepoint(point):
+                account_selected = "nicole"
+            if event.type == pygame.MOUSEBUTTONDOWN and michael_hitbox.collidepoint(point):
+                account_selected = "michael"
+            if event.type == pygame.MOUSEBUTTONDOWN and john_hitbox.collidepoint(point):
+                account_selected = "john"
+            if event.type == pygame.MOUSEBUTTONDOWN and marion_hitbox.collidepoint(point):    
+                account_selected = "marion"
+
+        if account_selected != "no one":
+            pygame.draw.rect(screen, (103,133,206), ((277+290,165+320),(350,207)))            
+            if event.type == pygame.MOUSEBUTTONDOWN and password_input_rect.collidepoint(point):
+                password_active = True
+            
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_BACKSPACE:
+                    password_input = password_input[:-1]
+                    text = body_text.render(password_input, True, (255, 255, 255))
+                if event.key == pygame.K_RETURN:
+                    print(password_input) 
+            if event.type == pygame.TEXTINPUT:
                 password_input += event.text
-        """
 
-        if password_active:
-            password_color = password_color_active
-        else:
-            password_color = password_color_passive
-    
-        pygame.draw.rect(screen, password_color, password_input_rect)
+            """
+            # if the key is physically pressed down
+            if event.type == pygame.TEXTINPUT:
+                if event.text == pygame.K_BACKSPACE:
+                    # stores text except last letter
+                    password_input = password_input[0:-1]
+                else:
+                    pygame.key.set_repeat(1000,500)
+                    password_input += event.text
+            """
 
-        # Renders the text
-        password = body_text.render(password_input, True, (0, 0, 0))
-        screen.blit(password, (password_input_rect.x + 5, password_input_rect.y + 5))
-        password_input_rect.w = max(100, password.get_width() + 10)
+            if password_active:
+                password_color = password_color_active
+            else:
+                password_color = password_color_passive
+        
+            pygame.draw.rect(screen, password_color, password_input_rect)
+
+            # Renders the text
+            password = body_text.render(password_input, True, (0, 0, 0))
+            screen.blit(password, (password_input_rect.x + 5, password_input_rect.y + 5))
+            password_input_rect.w = max(100, password.get_width() + 10)
             
     # pygame.draw.rect(screen, "white", (287,655,70,70))
     
