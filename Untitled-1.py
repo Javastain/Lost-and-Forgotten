@@ -20,9 +20,22 @@ while running:
     screen.blit(background, (0, 0))
     # RENDER YOUR GAME HERE
 
+    
+    
+    # Mouse pointer
+    point = pygame.mouse.get_pos()
+
+    # On button
+    power_hitbox = pygame.Rect((1000,800),(1050,850))
+    pygame.draw.rect(screen, '#FFFFFF', power_hitbox)
+
+
+    
     # flip() the display to put your work on screen
     pygame.display.flip()
 
     clock.tick(60)  # limits FPS to 60
+
+
 
 pygame.quit()
