@@ -20,6 +20,8 @@ outside = pygame.image.load("Assets/Image Assets/Lost And Forgotten.png").conver
 mail_UI = pygame.image.load("Assets/Image Assets/Email UI.png").convert_alpha()
 music_paused_UI = pygame.image.load("Assets/Image Assets/Music UI.png").convert_alpha()
 music_playing_UI = pygame.image.load("Assets/Image Assets/Music UI (playing).png").convert_alpha()
+notes_playing_UI = pygame.image.load("Assets/Image Assets/Music UI (playing).png").convert_alpha()
+photos_playing_UI = pygame.image.load("Assets/Image Assets/Music UI (playing).png").convert_alpha()
 logout_icon = pygame.image.load("Assets/Image Assets/Exit Icon.png").convert_alpha()
 mail_icon = pygame.image.load("Assets/Image Assets/Mail Icon.png").convert_alpha()
 music_icon = pygame.image.load("Assets/Image Assets/Music Icon.png").convert_alpha()
@@ -39,6 +41,10 @@ john_hitbox = pygame.Rect((305,460),(200,70))
 marion_hitbox = pygame.Rect((305,560),(200,70))
 logout_hitbox = pygame.Rect((285,665),(60,60))
 UI_Exit_hitbox = pygame.Rect((400,665),(60,60))
+mail_icon_hitbox = pygame.Rect((0,0),(0,0))
+music_icon_hitbox = pygame.Rect((0,0),(0,0))
+notes_icon_hitbox = pygame.Rect((0,0),(0,0))
+photos_icon_hitbox = pygame.Rect((0,0),(0,0))
 
 computer_on = False
 account = "no one"
@@ -169,29 +175,34 @@ while running:
                         if account == "nicole":
                             print("nicole logged in")
                             screen.blit(music_icon,(498, 320))
-                            music_icon_hitbox = pygame.Rect((498,320),(100,100))
-                            if event.type == pygame.MOUSEBUTTONDOWN and music_icon_hitbox.collidepoint(point):
-                                print ("music icon clicked")
-                                music_open = True
-                            if music_open== True and pygame.mixer.music.get_busy() == False:
-                                pygame.mixer.music.load("Assets/Audio Assets/moremusic.mp3")
-                                screen.blit(music_paused_UI,(400, 200))
-                                
+                            music_icon_hitbox = pygame.Rect((498,320),(75,95))
                             screen.blit(notes_icon,(648, 320))
+                            notes_icon_hitbox = pygame.Rect((648,320),(75,95))
                             screen.blit(photos_icon,(498, 470))
+                            photos_icon_hitbox = pygame.Rect((498,470),(75,95))
                             screen.blit(mail_icon,(648, 470))
+                            mail_icon_hitbox = pygame.Rect((698,470),(75,95))
                         if account == "michael":
                             screen.blit(mail_icon,(438, 315))
+                            mail_icon_hitbox = pygame.Rect((438,315),(75,95))
                             screen.blit(notes_icon,(588, 325))
+                            notes_icon_hitbox = pygame.Rect((588,325),(75,95))
                             screen.blit(music_icon,(504, 420))
-                            screen.blit(photos_icon,(570, 410))
+                            music_icon_hitbox = pygame.Rect((504,420),(75,95))
+                            screen.blit(photos_icon,(640, 460))
+                            photos_icon_hitbox = pygame.Rect((640,460),(75,95))
                         if account == "john":
                             screen.blit(notes_icon,(317, 240))
+                            notes_icon_hitbox = pygame.Rect((317,240),(75,95))
                             screen.blit(music_icon,(320, 330))
+                            music_icon_hitbox = pygame.Rect((320, 330),(75,95))
                             screen.blit(photos_icon,(310, 420))
+                            photos_icon_hitbox = pygame.Rect((310,420),(75,95))
                             screen.blit(mail_icon,(867, 510))
+                            mail_icon_hitbox = pygame.Rect((867,510),(75,95))
                         if account == "marion":
-                            screen.blit(notes_icon,(592, 240))
+                            screen.blit(notes_icon,(592, 375))
+                            notes_icon_hitbox = pygame.Rect((592,375),(75,95))
                             # screen.blit(mail_icon,(592, 330))
                             # screen.blit(photos_icon,(592, 420))
                             # screen.blit(music_icon,(592, 510))
@@ -230,13 +241,28 @@ while running:
                     hint_prompt = body_text.render('Need a hint?\n 3rd November 1967', True, (255,255,255))
                     hint = False
         if account != "no one":
-            # pygame.draw.rect(screen, (103,133,206), logout_hitbox)
+            
             if logout_hitbox.collidepoint(point) and mouse_left:
                 account = "no one"
                 account_selected = "no one"
                 pygame.time.delay(900)
                 screen.blit(login_screen,(276,165))
                 screen.blit(outside,(0,0))
+            
+            if mail_icon_hitbox.collidepoint(point) and mouse_left:
+                mail_open = True
+                screen.blit(mail_UI)
+
+            if music_icon_hitbox.collidepoint(point) and mouse_left:
+                print ("music icon clicked")
+                music_open = True
+                if pygame.mixer.music.get_busy() == False:
+                    pygame.mixer.music.load("Assets/Audio Assets/moremusic.mp3")
+                    screen.blit(music_paused_UI,(400, 200))
+            
+            if notes_icon_hitbox.collidepoint(point) and mouse_left:
+                print ("music icon clicked")
+                music_open = True
             
 
     
