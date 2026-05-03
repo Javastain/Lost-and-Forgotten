@@ -160,6 +160,9 @@ while running:
                         screen.blit(outside,(0,0))
                     password_input = ''
 
+            password = body_text.render(password_input, True, (0, 0, 0))
+            screen.blit(password, (password_input_rect.x + 5, password_input_rect.y + 5))
+
             if event.type == pygame.TEXTINPUT and password.get_width() < 240 and password_active == True:
                 password_input += event.text
 
@@ -172,10 +175,6 @@ while running:
                 screen.blit(password_prompt, password_prompt_rect)
                 pygame.draw.rect(screen, password_color, password_input_rect)
                 screen.blit(hint_prompt, hint_prompt_rect)
-            
-            # Renders the text
-            password = body_text.render(password_input, True, (0, 0, 0))
-            screen.blit(password, (password_input_rect.x + 5, password_input_rect.y + 5))
 
 
             if hint_prompt_rect.collidepoint(point) and mouse_left:
