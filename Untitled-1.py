@@ -197,7 +197,7 @@ while running:
                 screen.blit(login_screen,(276,165))
                 screen.blit(outside,(0,0))
                 if account == "nicole":
-                    screen.blit(music_icon,(710, 300))
+                    screen.blit(music_icon,(498, 320))
 
             
     # pygame.draw.rect(screen, "white", (287,655,70,70))
