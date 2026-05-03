@@ -84,11 +84,6 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-        # fill the screen with a color to wipe away anything from last frame
-
-        # RENDER YOUR GAME HERE
-
-        
         
         # Mouse pointer
         point = pygame.mouse.get_pos()
@@ -159,7 +154,7 @@ while running:
                         account = 'michael'
                     if account_selected == 'john' and password_input == 'M00nlander':
                         account = 'john'
-                    if account_selected == 'marion' and password_input == 'test!':
+                    if account_selected == 'marion' and password_input == 'I, Mudd':
                         account = 'marion'
 
                     if account != 'no one':
@@ -218,7 +213,7 @@ while running:
                 if account_selected == "john":
                     hint_prompt = body_text.render('Need a hint?\nMcD0nald\'s astr0naut', True, (255,255,255))
                 if mouse_left and not hint_prompt_rect.collidepoint(point):
-                    hint_prompt = body_text.render('Need a hint?', True, (255,255,255))
+                    hint_prompt = body_text.render('Need a hint?\n 3rd November 1967', True, (255,255,255))
                     hint = False
         if account != "no one":
             # pygame.draw.rect(screen, (103,133,206), logout_hitbox)
@@ -230,8 +225,6 @@ while running:
                 screen.blit(outside,(0,0))
             
 
-            
-    # pygame.draw.rect(screen, "white", (287,655,70,70))
     
     # flip() the display to put your work on screen
     pygame.display.flip()
