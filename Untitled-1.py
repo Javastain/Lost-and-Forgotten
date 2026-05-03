@@ -239,11 +239,13 @@ while running:
                 if account_selected == "nicole":
                     hint_prompt = body_text.render('Need a hint?\nIt\'s the first thing you think of!', True, (255,255,255))
                 if account_selected == "michael":
-                    hint_prompt = body_text.render('Need a hint?\ngreatestaccomplishment+gradyear', True, (255,255,255))
+                    hint_prompt = body_text.render('Need a hint?\ngreatest accomplishment + grad year', True, (255,255,255))
                 if account_selected == "john":
                     hint_prompt = body_text.render('Need a hint?\nMcD0nald\'s astr0naut', True, (255,255,255))
+                if account_selected == "marion":
+                     hint_prompt = body_text.render('Need a hint?\n3rd November 1967', True, (255,255,255))
                 if mouse_left and not hint_prompt_rect.collidepoint(point):
-                    hint_prompt = body_text.render('Need a hint?\n 3rd November 1967', True, (255,255,255))
+                    hint_prompt = body_text.render('Need a hint?', True, (255,255,255))
                     hint = False
         if account != "no one":
             
