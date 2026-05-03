@@ -20,8 +20,8 @@ outside = pygame.image.load("Assets/Image Assets/Lost And Forgotten.png").conver
 mail_UI = pygame.image.load("Assets/Image Assets/Email UI.png").convert_alpha()
 music_paused_UI = pygame.image.load("Assets/Image Assets/Music UI.png").convert_alpha()
 music_playing_UI = pygame.image.load("Assets/Image Assets/Music UI (playing).png").convert_alpha()
-notes_playing_UI = pygame.image.load("Assets/Image Assets/Music UI (playing).png").convert_alpha()
-photos_playing_UI = pygame.image.load("Assets/Image Assets/Music UI (playing).png").convert_alpha()
+notes_UI = pygame.image.load("Assets/Image Assets/Music UI (playing).png").convert_alpha()
+photos_UI = pygame.image.load("Assets/Image Assets/Music UI (playing).png").convert_alpha()
 logout_icon = pygame.image.load("Assets/Image Assets/Exit Icon.png").convert_alpha()
 mail_icon = pygame.image.load("Assets/Image Assets/Mail Icon.png").convert_alpha()
 music_icon = pygame.image.load("Assets/Image Assets/Music Icon.png").convert_alpha()
@@ -262,7 +262,8 @@ while running:
             
             if notes_icon_hitbox.collidepoint(point) and mouse_left:
                 print ("music icon clicked")
-                music_open = True
+                notes_open = True
+                screen.blit(notes_UI)
             
 
     
