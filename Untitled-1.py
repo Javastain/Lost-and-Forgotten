@@ -32,9 +32,9 @@ photos_UI = pygame.image.load("Assets/Image Assets/Photos UI.png").convert_alpha
 nicole_photo_1 = pygame.image.load("Assets/Image Assets/Nicole Photo 1.png").convert_alpha()
 nicole_photo_2 = pygame.image.load("Assets/Image Assets/Nicole Photo 2.png").convert_alpha()
 nicole_photo_3 = pygame.image.load("Assets/Image Assets/Nicole Photo 3.png").convert_alpha()
-michael_photo_1 = pygame.image.load("Assets/Image Assets/michael Photo 1.png").convert_alpha()
-michael_photo_2 = pygame.image.load("Assets/Image Assets/michael Photo 2.png").convert_alpha()
-michael_photo_3 = pygame.image.load("Assets/Image Assets/michael Photo 3.png").convert_alpha()
+michael_photo_1 = pygame.image.load("Assets/Image Assets/Michael Photo 1.png").convert_alpha()
+michael_photo_2 = pygame.image.load("Assets/Image Assets/Michael Photo 2.png").convert_alpha()
+michael_photo_3 = pygame.image.load("Assets/Image Assets/Michael Photo 3.png").convert_alpha()
 john_photo_1 = pygame.image.load("Assets/Image Assets/john Photo 1.png").convert_alpha()
 john_photo_2 = pygame.image.load("Assets/Image Assets/john Photo 2.png").convert_alpha()
 john_photo_3 = pygame.image.load("Assets/Image Assets/john Photo 3.png").convert_alpha()
@@ -111,9 +111,9 @@ screen.fill("#302732")
 screen.blit(outside, (0, 0))
 
 pygame.font.init()
-tahoma = pygame.font.Font = "Assets/Image Assets/tahoma.ttf"
-header = pygame.font.SysFont(tahoma, 25)
-body_text = pygame.font.SysFont(tahoma, 16)
+# tahoma = pygame.font.Font = "Assets/Image Assets/tahoma.ttf"
+header = pygame.font.SysFont('tahoma', 18)
+body_text = pygame.font.SysFont('tahoma', 12)
 
 
 login_prompt = header.render("To begin, click on your profile", True, (255, 255, 255))
@@ -129,7 +129,7 @@ nicole_note_1_date = body_text.render("Nov 8, 98\n    12:40 PM", True, (0, 0, 0)
 nicole_note_1_date_rect = nicole_note_1_date.get_rect()
 nicole_note_1_date_rect.center = (480, 335)
 
-nicole_note_1 = body_text.render("I guess I could only put off getting this set up for so long. Somehow using\nMichael's computer feels like I'm giving up on him. I know that's\nstupid, but... it still feels like it. But hey, free computer. It's old as\nhell and broke as ass, but seems like it'll be useful. I had to make\na guest account because there's already a bunch of other accounts on here,\nnot just Michael's. I wonder who they are.\n\n", True, (0, 0, 0))
+nicole_note_1 = body_text.render("I guess I could only put off getting this set up for so long. Somehow using\nMichael's computer feels like I'm giving up on him. I know that's stupid,\nbut... it still feels like it. But hey, free computer. It's old as hell and\nbroke as ass, but seems like it'll be useful. I had to make a guest account\nbecause there's already a bunch of other accounts on here, not just Michael's.\nI wonder who they are.\n\n", True, (0, 0, 0))
 nicole_note_1_rect = nicole_note_1.get_rect()
 nicole_note_1_rect.center = (630, 415)
 
@@ -145,7 +145,7 @@ nicole_note_3_date = body_text.render("Dec 25, 98\n    11:39 PM", True, (0, 0, 0
 nicole_note_3_date_rect = nicole_note_3_date.get_rect()
 nicole_note_3_date_rect.center = (780, 335)
 
-nicole_note_3 = body_text.render("It's weird how I spent most of my childhood not celebrating Christmas, and\nnow it's the loneliest thing in the world to not have someone to\nexchange gifts with.\n\nI bought myself a bar of chocolate and some new\nsocks. Fuck, I'm already getting old.\n\nOh, I figured out the computer thing. There's a program called Marion\nthat just kind of... does stuff, sometimes. I can't tell if it has a\npurpose or if it's just clicking on random things. Weird.", True, (0, 0, 0))
+nicole_note_3 = body_text.render("It's weird how I spent most of my childhood not celebrating Christmas, and\nnow it's the loneliest thing in the world to not have someone to\nexchange gifts with.\n\nI bought myself a bar of chocolate and some new socks. Fuck, I'm already\ngetting old.\n\nOh, I figured out the computer thing. There's a program called Marion\nthat just kind of... does stuff, sometimes. I can't tell if it has a purpose\nor if it's just clicking on random things. Weird.", True, (0, 0, 0))
 nicole_note_3_rect = nicole_note_3.get_rect()
 nicole_note_3_rect.center = (630, 415)
 
@@ -313,7 +313,7 @@ marion_note_6_date = body_text.render("May 10, 91", True, (0, 0, 0))
 marion_note_6_date_rect = marion_note_6_date.get_rect()
 marion_note_6_date_rect.center = (780, 495)
 
-marion_note_6 = body_text.render("It has been a long time since I've been lucid. I should be frightened,\nbut I am only embarrassed and exhausted. Perhaps I was never sane.\nWho in their right mind would live their whole life obsessed with a\ntwin they never had? I made an account for them instead of myself, I\nspent years writing a program to pretend that they were alive... it's\n little wonder that I muddled the facts in my decline.\nMy mother has no children left: Marion stillborn, myself nothing but the shell of her son.", True, (0, 0, 0))
+marion_note_6 = body_text.render("It has been a long time since I've been lucid. I should be frightened,\nbut I am only embarrassed and exhausted. Perhaps I was never sane.\nWho in their right mind would live their whole life obsessed with a\ntwin they never had? I made an account for them instead of myself, I\nspent years writing a program to pretend that they were alive... it's\nlittle wonder that I muddled the facts in my decline.\nMy mother has no children left: Marion stillborn, myself nothing but the\nshell of her son.", True, (0, 0, 0))
 marion_note_6_rect = marion_note_6.get_rect()
 marion_note_6_rect.center = (630, 415)
 
@@ -322,7 +322,7 @@ nicole_mail_1_label = body_text.render("<michael&jello@mail.com> PARTY PARTY PAR
 nicole_mail_1_label_rect = nicole_mail_1_label.get_rect()
 nicole_mail_1_label_rect.topleft = (430, 282)
 
-nicole_mail_1 = body_text.render("From <michael&jello@mail.com>: PARTY PARTY PARTY\n\nNICKY okay you remember me telling you about sasha? shes literally the best i think shes on drugs like 90% of the time. anyway shes throwing a party tonight and you should totally come if you can, its going to be terrible and im going to get sooo drunk lol (im pregaming a lil, can u tell?)\n\nsigned,\nTHE KEGSMASHER", True, (0, 0, 0))
+nicole_mail_1 = body_text.render("From <michael&jello@mail.com>: PARTY PARTY PARTY\n\nNICKY okay you remember me telling you about sasha? shes literally the best\ni think shes on drugs like 90% of the time. anyway shes throwing a party\ntonight and you should totally come if you can, its going to be terrible\nand im going to get sooo drunk lol (im pregaming a lil, can u tell?)\n\nsigned,\nTHE KEGSMASHER", True, (0, 0, 0))
 nicole_mail_1_rect = nicole_mail_1.get_rect()
 nicole_mail_1_rect.topleft = (420, 270)
 
@@ -330,7 +330,7 @@ nicole_mail_2_label = body_text.render("<izumito@mail.com> We Got a Computer Feb
 nicole_mail_2_label_rect = nicole_mail_2_label.get_rect()
 nicole_mail_2_label_rect.topleft = (430, 332)
 
-nicole_mail_2 = body_text.render("From <izumito@mail.com>: We Got a Computer\n\nDear Nicole,\n\nHello! I hope you're doing well.\n\nGuess what? My dad got a computer for his work! He's letting us use it when he's not busy. So I can send you E-mails now! I hope I remembered your E-mail address correctly.\n\nSigned,\nIzumi Ito", True, (0, 0, 0))
+nicole_mail_2 = body_text.render("From <izumito@mail.com>: We Got a Computer\n\nDear Nicole,\n\nHello! I hope you're doing well.\n\nGuess what? My dad got a computer for his work! He's letting us use it\nwhen he's not busy. So I can send you E-mails now! I hope I remembered your\nE-mail address correctly.\n\nSigned,\nIzumi Ito", True, (0, 0, 0))
 nicole_mail_2_rect = nicole_mail_2.get_rect()
 nicole_mail_2_rect.topleft = (420, 270)
 
@@ -338,7 +338,7 @@ nicole_mail_3_label = body_text.render("<michael&jello@mail.com> RE:Graduation P
 nicole_mail_3_label_rect = nicole_mail_3_label.get_rect()
 nicole_mail_3_label_rect.topleft = (430, 382)
 
-nicole_mail_3 = body_text.render("From <michael&jello@mail.com>: RE:Graduation Party!!\n\nholy shit i cant believe youre graduating next week! yes obviously im going to be there i cant believe youd even consider otherwise. question: will there be booze? because i know a gal, and we can make it that kinda party if you want to lol. if you want this to be a Nice Proper little thing id be happy to stay sober and wear something nice and whatever but if you want it to be a actual celebration, im fucking proud of the title kegsmasher and im going to use it\n\nmichael", True, (0, 0, 0))
+nicole_mail_3 = body_text.render("From <michael&jello@mail.com>: RE:Graduation Party!!\n\nholy shit i cant believe youre graduating next week! yes obviously im going to\nbe there i cant believe youd even consider otherwise. question: will\nthere be booze? because i know a gal, and we can make it that kinda party\nif you want to lol. if you want this to be a Nice Proper little thing id\nbe happy to stay sober and wear something nice and whatever but if you\nwant it to be a actual celebration, im fucking proud of the title\nkegsmasher and im going to use it\n\nmichael", True, (0, 0, 0))
 nicole_mail_3_rect = nicole_mail_3.get_rect()
 nicole_mail_3_rect.topleft = (420, 270)
 
@@ -354,7 +354,7 @@ nicole_mail_5_label = body_text.render("<michael&jello@mail.com> leaving Oct 12 
 nicole_mail_5_label_rect = nicole_mail_5_label.get_rect()
 nicole_mail_5_label_rect.topleft = (430, 482)
 
-nicole_mail_5 = body_text.render("From <michael&jello@mail.com>: leaving\n\nhey nicky\n\ni think im going to be ready to leave by saturday. still want me to come by tomorrow and give you my old computer and stuff?\n\nwe could also go into town and get sodas or something. or go to the lake again. one last goodbye, i guess?\n\nmichael", True, (0, 0, 0))
+nicole_mail_5 = body_text.render("From <michael&jello@mail.com>: leaving\n\nhey nicky\n\ni think im going to be ready to leave by saturday. still want me to come by\ntomorrow and give you my old computer and stuff?\n\nwe could also go into town and get sodas or something. or go to the lake\nagain. one last goodbye, i guess?\n\nmichael", True, (0, 0, 0))
 nicole_mail_5_rect = nicole_mail_5.get_rect()
 nicole_mail_5_rect.topleft = (420, 270)
 
@@ -362,7 +362,7 @@ nicole_mail_6_label = body_text.render("<izumito@mail.com> Checking In Oct 20 98
 nicole_mail_6_label_rect = nicole_mail_6_label.get_rect()
 nicole_mail_6_label_rect.topleft = (430, 532)
 
-nicole_mail_6 = body_text.render("From <izumito@mail.com>: Checking In\n\nHi, Nicole!\n\nI thought I'd try to send you an E-mail since you weren't answering the phone. Is everything okay? Are we still trick-or-treating together?\n\nSigned,\nIzumi", True, (0, 0, 0))
+nicole_mail_6 = body_text.render("From <izumito@mail.com>: Checking In\n\nHi, Nicole!\n\nI thought I'd try to send you an E-mail since you weren't answering the phone.\nIs everything okay? Are we still trick-or-treating together?\n\nSigned,\nIzumi", True, (0, 0, 0))
 nicole_mail_6_rect = nicole_mail_6.get_rect()
 nicole_mail_6_rect.topleft = (420, 270)
 
@@ -370,7 +370,7 @@ michael_mail_1_label = body_text.render("<johnatron@mail.com> Hi, Michael! May 1
 michael_mail_1_label_rect = michael_mail_1_label.get_rect()
 michael_mail_1_label_rect.topleft = (430, 282)
 
-michael_mail_1 = body_text.render("From <johnatron@mail.com>: Hi, Michael!\n\nJust wanted to check in and say hi. It's been a while! Any chance you'd\nbe down to grab sodas in town or stomp some goombas?\n\nUncle John", True, (0, 0, 0))
+michael_mail_1 = body_text.render("From <johnatron@mail.com>: Hi, Michael!\n\nJust wanted to check in and say hi. It's been a while! Any chance you'd\nbe down to grab sodas in town or rescue Peach or anything?\n\nUncle John", True, (0, 0, 0))
 michael_mail_1_rect = michael_mail_1.get_rect()
 michael_mail_1_rect.topleft = (420, 270)
 
@@ -386,7 +386,7 @@ michael_mail_3_label = body_text.render("<johnatron@mail.com> RE:secret of DOOM!
 michael_mail_3_label_rect = michael_mail_3_label.get_rect()
 michael_mail_3_label_rect.topleft = (430, 382)
 
-michael_mail_3 = body_text.render("From <johnatron@mail.com>: RE:secret of DOOM!\n\nHi, Miguel! I was just thinking about you. I've never played Doom, let alone the\nsequel, but that's a funny secret! Reminds me of my favorite \"Easter Egg\" - in\nMoonlander, you can fly to a secret McDonald's on the moon and your character\nwill stop to get food! Apologies if I've already told you about that one. I\nthink it's hilarious :)\n\nI hope your classes are all going well! You've always been a smart kid.\n\nUncle John\n\nP.S. Speaking of videogames - happy MAR10 day!", True, (0, 0, 0))
+michael_mail_3 = body_text.render("From <johnatron@mail.com>: RE:secret of DOOM!\n\nHi, Miguel! I was just thinking about you. I've never played Doom, let alone the\nsequel, but that's a funny secret! Reminds me of my favorite \"Easter Egg\" - in\nMoonlander, you can fly to a secret McDonald's on the moon and your\ncharacter will stop to get food! Apologies if I've already told you about that\none. I think it's hilarious :)\n\nI hope your classes are all going well! You've always been a smart kid.\n\nUncle John\n\nP.S. Speaking of videogames - happy MAR10 day!", True, (0, 0, 0))
 michael_mail_3_rect = michael_mail_3.get_rect()
 michael_mail_3_rect.topleft = (420, 270)
 
@@ -394,7 +394,7 @@ michael_mail_4_label = body_text.render("<rgutman@caduceusbiomedical.com> Applic
 michael_mail_4_label_rect = michael_mail_4_label.get_rect()
 michael_mail_4_label_rect.topleft = (430, 432)
 
-michael_mail_4 = body_text.render("From <rgutman@caduceusbiomedical.com>: Application Denied\n\nHello, Michael.\n\nWe regret to inform you that we will not be accepting your application\nto intern at Caedacus Biomedical Wellness at this time. While you are\nan accomplished student and seem very qualified for one of our internship\npositions, your unprofessional behavior and disregard for basic ettiquite\n make you an undesireable candidate. In the future, we advice against\nwriting your application in comic sans bold, abstaining from capitalization\nor punctuation, and signing off your emails with \"mic drop.\" We wish\n you luck in future applications.\n\nCaduceus Biomedical Wellness", True, (0, 0, 0))
+michael_mail_4 = body_text.render("From <rgutman@caduceusbiomedical.com>: Application Denied\n\nHello, Michael.\n\nWe regret to inform you that we will not be accepting your application\nto intern at Caedacus Biomedical Wellness at this time. While you are\nan accomplished student and seem very qualified for one of our internship\npositions, your unprofessional behavior and disregard for basic ettiquite\nmake you an undesireable candidate. In the future, we advice against\nwriting your application in comic sans bold, abstaining from capitalization\nor punctuation, and signing off your emails with \"mic drop.\" We wish\nyou luck in future applications.\n\nCaduceus Biomedical Wellness", True, (0, 0, 0))
 michael_mail_4_rect = michael_mail_4.get_rect()
 michael_mail_4_rect.topleft = (420, 270)
 
@@ -576,9 +576,9 @@ while running:
             computer_on = True
             pygame.mouse.set_pos(622, 450)
             pygame.mouse.set_visible(True)
+            screen.blit(login_prompt, login_prompt_rect)
 
         if computer_on == True and account == "no one":
-            screen.blit(login_prompt, login_prompt_rect)
 
             if event.type == pygame.MOUSEBUTTONDOWN and nicole_hitbox.collidepoint(
                 point
@@ -717,22 +717,22 @@ while running:
                         "Need a hint?\nIt's the first thing you think of!",
                         True,
                         (255, 255, 255),
+                        dummy = 0
                     )
                 if account_selected == "michael":
                     hint_prompt = body_text.render(
                         "Need a hint?\ngreatest accomplishment + grad year",
                         True,
                         (255, 255, 255),
+                        dummy = 0
                     )
                 if account_selected == "john":
-                    hint_prompt = body_text.render(
-                        "Need a hint?\nMcD0nald's astr0naut", True, (255, 255, 255)
-                    )
+                    hint_prompt = body_text.render("Need a hint?\nMcD0nald's astr0naut", True, (255, 255, 255))
+                    dummy = 0
                 if account_selected == "marion":
-                    hint_prompt = body_text.render(
-                        "Need a hint?\n00110001 00110001 00100000 00110000 00110011 00100000 00110001 00111001 00110110 00110111", True, (255, 255, 255)
-                    )
-                if mouse_left and not hint_prompt_rect.collidepoint(point):
+                    hint_prompt = body_text.render("Need a hint?\n1011 11 11110101111", True, (255, 255, 255))
+                    dummy = 0
+                if mouse_left and not hint_prompt_rect.collidepoint(point) and dummy >= 0:
                     hint_prompt = body_text.render(
                         "Need a hint?", True, (255, 255, 255)
                     )
@@ -766,6 +766,7 @@ while running:
                 photos_open = False
                 pygame.time.delay(900)
                 screen.blit(login_screen, (276, 165))
+                screen.blit(login_prompt, login_prompt_rect)
                 screen.blit(outside, (0, 0))
 
 
@@ -1026,15 +1027,15 @@ while running:
 
                 if photos_right_hitbox.collidepoint(point) and mouse_left and dummy >= 10:
                     if photo == 2 and dummy >= 10:
-                        if account == "nicole":
+                        if account == "nicole" and dummy >= 10:
                             screen.blit(nicole_photo_3, (480, 265))
                             photo = 3
                             dummy = 0
-                        if account == "michael":
+                        if account == "michael" and dummy >= 10:
                             screen.blit(michael_photo_3, (480, 265))
                             photo = 3
                             dummy = 0
-                        if account == "john":
+                        if account == "john" and dummy >= 10:
                             screen.blit(john_photo_3, (480, 265))
                             photo = 3
                             dummy = 0
@@ -1043,11 +1044,11 @@ while running:
                             screen.blit(nicole_photo_1, (480, 265))
                             photo = 1
                             dummy = 0
-                        if account == "michael":
+                        if account == "michael" and dummy >= 10:
                             screen.blit(michael_photo_1, (480, 265))
                             photo = 1
                             dummy = 0
-                        if account == "john":
+                        if account == "john" and dummy >= 10:
                             screen.blit(john_photo_1, (480, 265))
                             photo = 1
                             dummy = 0
@@ -1056,11 +1057,11 @@ while running:
                             screen.blit(nicole_photo_2, (480, 265))
                             photo = 2 
                             dummy = 0
-                        if account == "michael":
+                        if account == "michael" and dummy >= 10:
                             screen.blit(michael_photo_2, (480, 265))
                             photo = 2
                             dummy = 0
-                        if account == "john":
+                        if account == "john" and dummy >= 10:
                             screen.blit(john_photo_2, (480, 265))
                             photo = 2
                             dummy = 0
